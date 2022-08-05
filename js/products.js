@@ -15,25 +15,27 @@ const products = [
   },
 ];
 
-let container = document.querySelector(".container");
+const container = document.querySelector(".container");
 
 let html = "";
 
 for (let i = 0; i < products.length; i++) {
-  let price = "Unknown";
+  let displayPrice = "Unavailable";
 
   if (products[i].price) {
-    price = products[i].price;
+    displayPrice = products[i].price;
   }
 
-  html += `<div>
-            <h4 style="color: green">${products[i].name}</h4>
-            <p>Price: ${price}</p>
-            </div>`;
+  let colour = "green";
 
-  //if (products[i].soldOut) {
-  //  html += `<h4 style="color: red">${products[i].name}</h4>`;
-  //}
+  if (products[i].soldOut) {
+    colour = "red";
+  }
+
+  html += `<div class="product">
+            <h4 style="color: ${colour}">${products[i].name}</h4>
+            <p>Price: ${displayPrice}</p>
+            </div>`;
 }
 
 container.innerHTML = html;
