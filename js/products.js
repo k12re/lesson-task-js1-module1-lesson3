@@ -15,7 +15,7 @@ const products = [
   },
 ];
 
-let productsList = document.querySelector(".container");
+let container = document.querySelector(".container");
 
 let html = "";
 
@@ -36,4 +36,4 @@ for (let i = 0; i < products.length; i++) {
   //}
 }
 
-productsList.innerHTML = html;
+container.innerHTML = html;
